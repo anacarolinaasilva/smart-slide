@@ -1,0 +1,11 @@
+/* Reset */
+* {
+  margin:0;
+  padding:0;
+  line-height: 1;
+}
+
+#images{
+  height:200px !important;
+  background: red;
+}
