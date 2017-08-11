@@ -15,9 +15,12 @@
   </div>
 
   <script id="template-slide" type="text/x-jsrender">
+        {{for images}}
         <div>
-          <img src="{{:link}}" />
+          <span>img #: {{:id}}</span>
+          <img src="{{:url}}" />
         </div>
+        {{/for}}
   </script>
 
 
