@@ -2,6 +2,8 @@
 
   $(document).ready(function(){
 
+    var template = $('#template-slide');
+
     var container = $('#images');
 
     var url ="http://www.splashbase.co/api/v1/images/latest"
@@ -10,9 +12,15 @@
       console.log(json.images.length);
       for (i = 0; i < json.images.length; i++){
           var img = json.images[i].url;
-          img = "http://c3uo9imc.cloudimg.io/width/200/none/" + img ;
-            container.append("<div><img src=\""+img+"\"></div>");
-              console.log(json);
+          img = "http://c3uo9imc.cloudimg.io/width/200/none/" + img;
+
+           html = template.render({link:img})
+          console.log(html);
+
+          container.append(html);
+
+          //   container.append("<div><img src=\""+img+"\"></div>");
+          //     console.log(json);
       }
       container.slick(
         {
