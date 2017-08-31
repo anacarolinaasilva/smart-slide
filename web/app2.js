@@ -1,15 +1,16 @@
 
-//
+
 appmodel = function(){
   self = this;
 
   self.textRemoveImgById = ko.observable();
 
-  this.title = ko.observable('Smart Slide'); //var non static
-  this.slides = ko.observableArray(); //Array non static
+  self.title = ko.observable('Smart Slide'); //var non static
+  self.slides = ko.observableArray(); //Array non static
 
   self.imageUpload = ko.observable();
 
+  self.imageIds = ko.observableArray();
 
 
   var url ="http://www.splashbase.co/api/v1/images/latest"
@@ -20,7 +21,14 @@ appmodel = function(){
     console.log(json);
    self.slides.push.apply(self.slides, json.images);
    //console.log(self.slides());
+
+      self.slides().forEach(function(item){
+        self.imageIds.push(item.id);
+      });
+
   });
+
+console.log(self.imageIds());
 
 
   self.addimg = function(){
@@ -46,12 +54,11 @@ appmodel = function(){
       type: "warning",
       showCancelButton: true,
     }, doRemove);
-
  }
 
  self.removeImgById = function(){
  //image = this; //????
-   console.log(self.textRemoveImgById());
+   //console.log(self.textRemoveImgById());
    var flagDeleted = false;
    self.slides().forEach(function(item){
      //console.log(item.id);
@@ -60,20 +67,12 @@ appmodel = function(){
          flagDeleted = true;
      }
    });
-
+   index = self.imageIds().indexOf(self.textRemoveImgById());
+   idDeleted = self.imageIds()[index];
+   self.imageIds.remove(idDeleted);
    if (!flagDeleted) {
      swal("Image Not Found", "", "warning")
    }
-
-
-     //buascar indexOf
-     //var x =  id;
-
-       //console.log(image.id);
-       //index = image.id[self.textRemoveImgById].indexOf;
-      // console.log(index);
-      // self.slides.remove(image[index]);
-
  }
 
 

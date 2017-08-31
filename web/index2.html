@@ -13,12 +13,16 @@
 <body>
   <h1 data-bind="text:title"></h1>
 
-  <input type="text" data-bind="value: textRemoveImgById">
+  <!-- <input type="text" data-bind="value: textRemoveImgById"> -->
+  <select data-bind="options: imageIds, value: textRemoveImgById, optionsCaption: 'Choose...'" ></select>
+
   <button type="button" data-bind="click: removeImgById" >Remove</button>
+
 
 
   <input type="text" data-bind="value: imageUpload" />
   <button type="button" data-bind="click: addimg" >OK</button>
+
 
   <div data-bind="visible:slides().length == 0">
     Carregando...
