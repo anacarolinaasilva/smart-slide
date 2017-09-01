@@ -2,8 +2,8 @@
 <head>
   <link rel="stylesheet" href="style.css" type="text/css" />
 
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css"/>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"/>
 
 
@@ -28,20 +28,83 @@
     Carregando...
   </div>
 
-  <div id="images">
-    <div data-bind="foreach : slides">
-      <img data-bind="attr: {src: url}" width="200">
-      <p>Image Id:#<span data-bind="text: id"></span>
-          <button type="button" data-bind="click: $parent.removeimg">remove</button>
-       </p>
+
+ <div class="slider" id="featured-content">
+
+    <div data-bind="foreach: slides">
+
+              <img data-bind="attr: {src: url}" width="200" />
+              <p>Image Id:#<span data-bind="text: id"></span>
+                  <button type="button" data-bind="click: $parent.removeimg">remove</button>
+               </p>
+
     </div>
+
   </div>
 
 
+<!--
+  <div class="slider" id="featured-content">
+   <div>
+      <a href="#">
+         <figure class="thumbnail ratio-16by9"><img src="http://dummyimage.com/464x16:9/3498db/fff.gif" alt=""></figure>
+         <h2>[#1]The greatest breakthroughs in gaming history of the past 25 years</h2>
+      </a>
+   </div>
+   <div>
+      <a href="#">
+         <figure class="thumbnail ratio-16by9"><img src="http://dummyimage.com/464x16:9/3498db/fff.gif" alt=""></figure>
+         <h2>Best game reboots</h2>
+      </a>
+   </div>
+   <div>
+      <a href="#">
+         <figure class="thumbnail ratio-16by9"><img src="http://dummyimage.com/464x16:9/3498db/fff.gif" alt=""></figure>
+         <h2>[#3]The greatest breakthroughs</h2>
+      </a>
+   </div>
+   <div>
+      <a href="#">
+         <figure class="thumbnail ratio-16by9"><img src="http://dummyimage.com/464x16:9/3498db/fff.gif" alt=""></figure>
+         <h2>[#4]The greatest breakthroughs</h2>
+      </a>
+   </div>
+   <div>
+      <a href="#">
+         <figure class="thumbnail ratio-16by9"><img src="http://dummyimage.com/464x16:9/3498db/fff.gif" alt=""></figure>
+         <h2>[#5]The greatest breakthroughs in gaming</h2>
+      </a>
+   </div>
+   <div>
+      <a href="#">
+         <figure class="thumbnail ratio-16by9"><img src="http://dummyimage.com/464x16:9/3498db/fff.gif" alt=""></figure>
+         <h2>[#6]The greatest breakthroughs in gaming history of</h2>
+      </a>
+   </div>
+   <div>
+      <a href="#">
+         <figure class="thumbnail ratio-16by9"><img src="http://dummyimage.com/464x16:9/3498db/fff.gif" alt=""></figure>
+         <h2>[#7]The greatest breakthroughs in gaming history of the past</h2>
+      </a>
+   </div>
+   <div>
+      <a href="#">
+         <figure class="thumbnail ratio-16by9"><img src="http://dummyimage.com/464x16:9/3498db/fff.gif" alt=""></figure>
+         <h2>[#8]The greatest breakthroughs in gaming history of the past 25 years</h2>
+      </a>
+   </div>
+   <div>
+      <a href="#">
+         <figure class="thumbnail ratio-16by9"><img src="http://dummyimage.com/464x16:9/3498db/fff.gif" alt=""></figure>
+         <h2>[#9]The greatest breakthroughs in gaming history of the past 25 years</h2>
+      </a>
+   </div>
+</div>
+ -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
 <script src="app2.js" ></script>
