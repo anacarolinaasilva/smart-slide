@@ -4,17 +4,35 @@
 
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css"/>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"/>
 
 
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
 
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.css">
+
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
 </head>
 <body>
   <h1 data-bind="text:title"></h1>
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+         <label for="">Change background Color:</label>
+         <select  data-bind="options: optionsValue,
+                             value: colorSelected,
+                             optionsText: 'name',
+                             optionsCaption: 'Choose color...'"></select>
+       </div>
+       <div class="form-group col-md-6">
+            <button type="button" data-bind="click: modifyBackground" >Colored</button>
+       </div>
+ </div>
+</form>
 
-  <!-- <input type="text" data-bind="value: textRemoveImgById"> -->
-  <select data-bind="options: imageIds, value: textRemoveImgById, optionsCaption: 'Choose...'" ></select>
+  <select data-bind="options: imageIds, value: textRemoveImgById, optionsCaption: 'Choose...'" class="form-control form-control-sm"></select>
 
   <button type="button" data-bind="click: removeImgById" >Remove</button>
 
@@ -23,6 +41,7 @@
   <input type="text" data-bind="value: imageUpload" />
   <button type="button" data-bind="click: addimg" >OK</button>
 
+<button type="button" data-bind="">Sort By ID</button>
 
   <div data-bind="visible:slides().length == 0">
     Carregando...
@@ -30,16 +49,15 @@
 
 
  <div class="slider" id="featured-content">
-
     <div data-bind="foreach: slides">
-
-              <img data-bind="attr: {src: url}" width="200" />
-              <p>Image Id:#<span data-bind="text: id"></span>
-                  <button type="button" data-bind="click: $parent.removeimg">remove</button>
-               </p>
-
+      <figure>
+         <a  data-bind="attr: {href: large_url}" target="_blank" ><img data-bind="attr: {src: url}" width="200" /></a>
+         <figcaption data-bind="text: large_url"></figcaption><button type="button" data-bind="">Edit</button>
+      </figure>
+       <p>Image Id:#<span data-bind="text: id"></span>
+          <button type="button" data-bind="click: $parent.removeimg">remove</button>
+       </p>
     </div>
-
   </div>
 
 
@@ -104,8 +122,12 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
 <script src="app2.js" ></script>
 </body>

@@ -12,6 +12,15 @@ appmodel = function(){
 
   self.imageIds = ko.observableArray();
 
+  //Background
+  self.colorSelected = ko.observable(); // holds selected item from optionsValue Array
+  self.optionsValue = ko.observable([{ name: "red", item: "Apples", qty: 12 },
+        { name: "yellow", item: "Pears", qty: 24 },
+        { name: "blue", item: "Bananas", qty: 44 },
+        { name: "green", item: "Peaches", qty: 12 }]);
+
+
+
 
   var url ="http://www.splashbase.co/api/v1/images/latest"
   $.getJSON(url) //?
@@ -72,30 +81,44 @@ console.log(self.imageIds());
  }
 
 
- //self.removeimg2 = function(){};
+ self.modifyBackground = function(){
+   self = this;
+    alert(self.colorSelected().name);
+ };
+
 
  self.removeImgById = function(){
- //image = this; //????
+   //image = this; //????
    //console.log(self.textRemoveImgById());
-   var flagDeleted = false;
+   //var flagDeleted = false;
    self.slides().forEach(function(item){
-     //console.log(item.id);
      if (item.id == self.textRemoveImgById()){
-         self.slides.remove(item);
-         flagDeleted = true;
-     }
-   });
-   index = self.imageIds().indexOf(self.textRemoveImgById());
-   idDeleted = self.imageIds()[index];
-   self.imageIds.remove(idDeleted);
-   if (!flagDeleted) {
-     swal("Image Not Found", "", "warning")
-   }
 
- }
-
-
-
+       swal({
+           title: 'Are you sure?',
+           text: "You won't be able to revert this!",
+           type: 'warning',
+           showCancelButton: true,
+           confirmButtonColor: '#3085d6',
+           cancelButtonColor: '#d33',
+           confirmButtonText: 'Yes, delete it!',
+           cancelButtonText: 'No, cancel!',
+           confirmButtonClass: 'btn btn-success',
+           cancelButtonClass: 'btn btn-danger',
+           buttonsStyling: false
+       }).then(function () {
+           self.slides.remove(item);
+           index = self.imageIds().indexOf(self.textRemoveImgById());
+           idDeleted = self.imageIds()[index];
+           self.imageIds.remove(idDeleted);
+           swal('Deleted!','Your file has been deleted.','success')}, function (dismiss) {
+             if (dismiss === 'cancel') {
+                swal('Cancelled','Your imaginary file is safe :)','error')
+             }
+           });
+     } // End of if
+   });// End of forEach
+  } //  End of removeImgById
 } //End appmodel
 
 
@@ -139,10 +162,10 @@ function myCoolSlider() {
     /*End of Slider function*/
 
 $(document).ready(function(){
+
+  ko.applyBindings(new appmodel());
   /*Calling the function [It is recommended to call a function in a separate JS file, such as "scripts.js"]*/
       myCoolSlider();
   /*.................End of call*/
-
-  ko.applyBindings(new appmodel());
 
 });
