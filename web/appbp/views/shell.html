@@ -1,0 +1,59 @@
+﻿<header class="container-fluid" aria-live="polite">
+    <div class="row">
+        <a class="navbar-brand col-sm-2 col-xs-3" href="/en">
+            <img src="images/common/logo.png" alt="Logo of CAPrapido"/>
+        </a>
+
+        <h1 class="col-sm-8 col-xs-5" data-bind="text: router.activeInstruction().config.point"></h1>
+        <a href="/login" class="col-sm-2 col-xs-4 btn btn-default navbar-btn">Sign-in / Sign-up</a>
+    </div>
+
+    <nav class="navbar navbar-default row" role="navigation">
+        <ul class="nav navbar-nav" data-bind="foreach: leftNav" role="menu">
+            <li data-bind="css: { active: isActive }" role="menuitem">
+                <a data-bind="attr: { href: hash }, text: title"></a>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" role="menu">
+            <!-- ko foreach: rightNav -->
+            <li data-bind="css: { active: isActive }" role="menuitem">
+                <a data-bind="attr: { href: hash }, text: title"></a>
+            </li>
+            <!-- /ko -->
+            <li class="loader" data-bind="css: { active: router.isNavigating }">
+                <i class="fa fa-spinner fa-spin fa-2x"></i>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container-fluid page-host" data-bind="router: { transition:'entrance' }"></div>
+
+<footer class="container-fluid">
+    <section class="row">
+        <div class="col-sm-4">
+            <a href="/en">HOMEPAGE</a>
+            <a href="faq#how-works">How does it works?</a>
+            <a href="faq#try-a-demo">Try a demo</a>
+            <a href="faq#questions">Questions & Answers</a>
+            <a href="faq#support-us">Support us</a>
+            <a href="faq#become-partner">FOR THE COMPANIES</a>
+        </div>
+        <div class="col-sm-4">
+            <a href="faq#beta">CAPrapido beta</a>
+            <a href="faq#about-us">About us (Team)</a>
+            <a href="faq#how-can-we-do-it">How can we do it?</a>
+            <a href="faq#news">News</a>
+            <a href="/blog">Blog <small>(is possibile to innovate with an address)</small></a>
+        </div>
+        <div class="col-sm-4">
+            <a href="faq#contact-us">CONTACT US</a>
+            <a href="faq#work-with-us">Work with us</a>
+            <a href="faq#developers">Developers</a>
+            <a href="faq#privacy">Privacy Policy</a>
+            <a href="faq#terms-of-usage">Terms of usage</a>
+        </div>
+    </section>
+    <div class="row section text-right"><span>&copy; 2012 CAPrapido <small>All rights reserved</small></span></div>
+</footer>

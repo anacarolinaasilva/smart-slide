@@ -3,23 +3,21 @@
 appmodel = function(){
   self = this;
 
-  self.textRemoveImgById = ko.observable();
-
   self.title = ko.observable('Smart Slide'); //var non static
   self.slides = ko.observableArray(); //Array non static
 
+  //Image Manipulation
   self.imageUpload = ko.observable();
-
   self.imageIds = ko.observableArray();
+  self.textRemoveImgById = ko.observable();
 
   //Background
   self.colorSelected = ko.observable(); // holds selected item from optionsValue Array
-  self.optionsValue = ko.observable([{ name: "red", item: "Apples", qty: 12 },
+  self.optionsValue = ko.observable([
+        { name: "red", item: "Apples", qty: 12 },
         { name: "yellow", item: "Pears", qty: 24 },
         { name: "blue", item: "Bananas", qty: 44 },
         { name: "green", item: "Peaches", qty: 12 }]);
-
-
 
 
   var url ="http://www.splashbase.co/api/v1/images/latest"
@@ -28,13 +26,14 @@ appmodel = function(){
   .done(function(json){
     //json returns {images: [{url: '...'}]}
     console.log(json);
-   self.slides.push.apply(self.slides, json.images);
+    self.slides.push.apply(self.slides, json.images);
    //console.log(self.slides());
 
       self.slides().forEach(function(item){
         // item.removeimg2 = function(){};
         self.imageIds.push(item.id);
       });
+       myCoolSlider();
 
       // for(var i = 0; self.slides().length; i++){
       //   self.slides()[i].removeimg2 = function(){
@@ -82,16 +81,14 @@ console.log(self.imageIds());
 
 
  self.modifyBackground = function(){
-   self = this;
+    self = this;
     alert(self.colorSelected().name);
  };
 
 
  self.removeImgById = function(){
-   //image = this; //????
-   //console.log(self.textRemoveImgById());
-   //var flagDeleted = false;
    self.slides().forEach(function(item){
+
      if (item.id == self.textRemoveImgById()){
 
        swal({
@@ -125,8 +122,8 @@ console.log(self.imageIds());
 /*Slider function [It is recommended to place a function in a separate JS file, such as "functions.js"]*/
 function myCoolSlider() {
         $('#featured-content').slick({
-            dots: false,
-            infinite: true,
+            dots: true,
+            infinite: false,
             speed: 300,
             slidesToShow: 4,
             slidesToScroll: 4,
@@ -165,7 +162,7 @@ $(document).ready(function(){
 
   ko.applyBindings(new appmodel());
   /*Calling the function [It is recommended to call a function in a separate JS file, such as "scripts.js"]*/
-      myCoolSlider();
+
   /*.................End of call*/
 
 });

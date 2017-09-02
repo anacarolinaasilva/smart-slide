@@ -1,0 +1,66 @@
+﻿<section class="section" id="identity-section">
+  <header class="row">
+    <h4 class="col-sm-12">IDENTITY CARD</h4>
+  </header>
+  <fieldset>
+    <div class="form-group">
+      <label for="first-name" class="col-sm-2 control-label">
+        First Name
+      </label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="first-name"
+               autocomplete="firstname" placeholder="John"
+               data-bind="textInput: firstName">
+      </div>
+      <label class="col-sm-2">Last Name</label>
+      <div class="col-sm-4">
+        <input type="text" data-bind="textInput: lastName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2">Date of birth</label>
+      <div class="col-sm-3">
+        <input type="date" data-bind="textInput: birthDate">
+      </div>
+
+      <label class="col-sm-3">Place of birth</label>
+      <div class="col-sm-4">
+        <select data-bind="optionsLoading: communes,
+                           optionsText: textForCommune,
+                           value: birthPlace,
+                    optionsCaption: 'Place of birth'"></select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="gender" class="col-sm-1 control-label">Gender</label>
+
+      <ul class="col-sm-2" id="gender" tabindex="0" role="radiogroup"
+          data-bind="radio-a11y: sex">
+        <!-- ko foreach: typeOfSex -->
+        <li class="enhanced-radio col-sm-6" tabindex="-1" role="radio"
+            aria-checked="false"
+            data-bind="attr: {
+                   id: 'gender-' + value,
+                   'data-value': value
+                 }">
+          <i class="fa fa-2x" role="presentation"
+             data-bind="css: icon"></i>
+          <span class="sr-only" data-bind="text: label"></span>
+        </li>
+        <!-- /ko -->
+      </ul>
+
+      <label class="col-sm-2">Citizenship</label>
+      <div class="col-sm-7">
+        <input type="text" data-bind="textInput: citizenship">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2">Tax Code</label>
+      <div class="col-sm-10">
+        <p class="form-control-static"
+           data-bind="text: taxCode"></p>
+      </div>
+    </div>
+  </fieldset>
+</section>

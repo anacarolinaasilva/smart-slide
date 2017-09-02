@@ -9,3 +9,41 @@
   height:200px !important;
   background: red;
 }
+/*
+ 
+.slick-slider { }
+.slick-slide { }
+.slick-slide:hover { }
+.slick-slide img { transition: all 0.3s ease;  }
+.slick-slide:hover img { opacity: 0.5; height: 125%; left: -12.5%; }
+.slick-slide.slick-loading img { }
+.slick-slide.dragging img { }
+.slick-initialized .slick-slide { }
+.slick-loading .slick-slide { }
+.slick-vertical .slick-slide { }
+
+.slick-prev, .slick-next { font: normal normal normal 22px/0 FontAwesome; top: 0; width: 1.5em; height: 1.5em; margin: 0; background-color: rgba(0,0,0,0.2); color: transparent; transition: all 0.3s ease; }
+.slick-slider:hover .slick-prev, .slick-slider:hover .slick-next { }
+.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus { background-color: rgba(0,0,0,0.8) }
+.slick-prev:hover:before, .slick-prev:focus:before, .slick-next:hover:before, .slick-next:focus:before { }
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before { }
+.slick-prev:before, .slick-next:before { font-family: inherit; font-size: inherit; display: inline-block; opacity: 1; color: rgba(255,255,255,0.8); }
+.slick-prev { left: 0 }
+.slick-prev:before { content: '\f053' }
+.slick-next { right: 0 }
+.slick-next:before { content: '\f054' }
+
+.slick-slider { }
+.slick-dots { }
+.slick-dots li { }
+.slick-dots li button { }
+.slick-dots li button:hover, .slick-dots li button:focus { }
+.slick-dots li button:hover:before, .slick-dots li button:focus:before { }
+.slick-dots li button:before { }
+.slick-dots li.slick-active button:before { }
+
+.slick-slide { }
+.slick-slide a { position: relative; display: block; text-decoration: none; }
+.slick-slide h2 { font-size: 22px; font-weight: bold; margin: 0 auto; background-color: #fff; position: relative; overflow: hidden; color: #333; padding: 0.5em; width: 80%; margin-top: -7%; }
+.slick-slide .thumbnail:after { content: ''; position: absolute; width: 1px; height: 100%; right: 0; top: 0; background-color: rgba(128,128,128,0.66); }
+.slick-slide .thumbnail:last-child { }*/
