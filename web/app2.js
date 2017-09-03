@@ -37,6 +37,16 @@ appmodel = function(){
         self.slides().forEach(function(item){
           self.imageIds.push(item.id);
         });
+      // .done(function(json){
+      //   vm = ko.mapping.fromJSON(json);
+      //   vm.pullData = function(){
+      //   reqAJAX = "http://www.splashbase.co/api/v1/images/latest";
+      //     jQuery.getJSON(reqAJAX).done(function(data){
+      //         ko.mapping.fromJSON(data,vm);
+      //     });
+      //   };
+      // ko.applyBindings( vm );
+
       });// Enf of .done
 
     }; //End of pullData()
@@ -76,11 +86,6 @@ appmodel = function(){
 
     self.removeimg = function(){
       image = this;
-      console.log('START image');
-      console.log(image);
-      console.log('END image');
-
-
       var doRemove = function(){
         self.slides.remove(image);
       }
@@ -90,7 +95,6 @@ appmodel = function(){
         type: "warning",
         showCancelButton: true,
       }, doRemove);
-
     }
 
 
@@ -98,7 +102,6 @@ appmodel = function(){
       self = this;
       alert(self.colorSelected().name);
     };
-
 
     self.removeImgById = function(){
       self.slides().forEach(function(item){
