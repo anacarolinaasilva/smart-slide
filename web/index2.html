@@ -54,7 +54,7 @@
       <div data-bind="visible:slides().length == 0">
         Carregando...
       </div>
-
+      <button data-bind="click: pullData">Pull Data API</button><br/>
        <div data-bind="foreach: slides" class="slider" id="featured-content">
          <div>
            <figure class=""><img data-bind="attr: {src: url}" width="200" /></figure>
@@ -65,6 +65,9 @@
          </div>
       </div>
  </div>
+
+
+
 
 </div>
 
